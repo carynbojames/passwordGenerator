@@ -1,14 +1,22 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
+// STEP 1: User selects password criteria
 var passwordLength = function() {
   var passwordEntry = window.prompt("Select password length. Choose a number greater than 7 and less than 128.");
-  if (passwordEntry >= 7 && passwordEntry < 128) {
-    var passwordLengthValue =  passwordEntry;
-    console.log("Password Length: " + passwordLengthValue)
+  // Right now this just passes it forward. It doesn't return it to the main screen. 
+  if (!passwordEntry) {
+    return;
+  }
+  // Validates if user entry meets the criteria
+  if (passwordEntry > 7 && passwordEntry < 128) {
+    console.log("Password Length: " + passwordEntry)
+  // Restarts the code to select a different value 
   } else (passwordLength());
 }
 passwordLength();
+
 
 var passwordLower = function() {
   var passwordLowerSelect = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
