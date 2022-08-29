@@ -1,38 +1,35 @@
 // Assignment Code
+
+// STEP 1: 
+// document.querySelector returns the first element that matches the specified selector
+// Triggers the button 
 var generateBtn = document.querySelector("#generate");
 
 
-// STEP 1: User selects password criteria
-var passwordLength = function() {
-  var passwordEntry = window.prompt("Select password length. Choose a number greater than 7 and less than 128.");
-  // Right now this just passes it forward. It doesn't return it to the main screen. 
-  if (!passwordEntry) {
+
+// STEP 2: User selects password criteria
+var writePassword = function() {
+  var passwordLength = window.prompt("Select password length. Choose a number greater than 7 and less than 128.");
+  // ACTION: Right now this just passes it forward. It doesn't return it to the main screen. 
+  if (!passwordLength) {
     return;
   }
   // Validates if user entry meets the criteria
-  if (passwordEntry > 7 && passwordEntry < 128) {
-    console.log("Password Length: " + passwordEntry)
+  if (passwordLength > 7 && passwordLength < 128) {
+    console.log("Password Length: " + passwordLength)
   // Restarts the code to select a different value 
-  } else (passwordLength());
-}
-passwordLength();
+  } else (passwordLength);
 
+  var passwordLower = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
+  if (passwordLower == "yes" || passwordLower == "no") {
+    console.log("Password Lowercase: " + passwordLower);
+  } else (passwordLower);
 
-var passwordLower = function() {
-  var passwordLowerSelect = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
-  if (passwordLowerSelect == "yes" || passwordLowerSelect == "no") {
-    console.log("Password Lowercase: " + passwordLowerSelect);
-  } else (passwordLower());
+  var passwordUpper = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
+  if (passwordUpper == "yes" || passwordUpper == "no") {
+    console.log("Password Uppercase: " + passwordUpper);
+  } else (passwordUpper);
 }
-passwordLower();
-
-var passwordUpper = function() {
-  var passwordUpperSelect = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
-  if (passwordUpperSelect == "yes" || passwordUpperSelect == "no") {
-    console.log("Password Lowercase: " + passwordUpperSelect);
-  } else (passwordUpper());
-}
-passwordUpper();
 
 
 // Create an array with the conditions
@@ -46,13 +43,16 @@ passwordUpper();
 
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// function writePassword() {
+//  var password = generatePassword();
+//  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+//  passwordText.value = password;
 
-}
+//}
 
 // Add event listener to generate button
+// The click activates the variable and/or function
 generateBtn.addEventListener("click", writePassword);
+//generateBtn.addEventListener("click", passwordUpper);
+// When placed at the beginning, the button doesn't work
