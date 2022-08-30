@@ -8,25 +8,37 @@ var generateBtn = document.querySelector("#generate");
 
 // STEP 2: User selects password criteria
 var writePassword = function() {
-  var passwordLength = function() {
-    window.prompt("Select password length. Choose a number greater than 7 and less than 128.");
+  //var passwordLength = function() {
+    var passwordLength = window.prompt("Select password length. Choose a number greater than 7 and less than 128.");
     // Validates if user entry meets the criteria
     if (passwordLength > 7 && passwordLength < 128) {
       console.log("Password Length: " + passwordLength)
     // Restarts the code to select a different value 
-    //} else (passwordLength);
-    } 
-  passwordLength();
+    } else (passwordLength);
+    
+
+    var writePassword2 = function() {
+      var passwordLength2 = window.prompt("Select password length. Choose a number greater than 7 and less than 128.");
+      // Validates if user entry meets the criteria
+      if (passwordLength2 > 7 && passwordLength2 < 128) {
+        console.log("Password Length2: " + passwordLength2)
+      // Restarts the code to select a different value 
+      } else (passwordLength2);
+    }
+    writePassword2();
+}
+  //passwordLength();
   // ACTION: Right now this just passes it forward. It doesn't return it to the main screen. 
   //if (!passwordLength) {
   //  return;
 
-  //var passwordLower = function() {
-    //window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
-    //if (passwordLower == "yes" || passwordLower == "no") {
-    //  console.log("Password Lowercase: " + passwordLower);
-    //} else (passwordLower);
-    //}
+  var passwordLower = function() {
+    window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
+    if (passwordLower == "yes" || passwordLower == "no") {
+      console.log("Password Lowercase: " + passwordLower);
+    } else (passwordLower);
+    }
+  passwordLower();
 
     //var passwordUpper = function() { 
     //  window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
@@ -34,8 +46,6 @@ var writePassword = function() {
     //    console.log("Password Uppercase: " + passwordUpper);
     //} else (passwordUpper);
     //}
-  }
-}  
 
 
   // Numeric
@@ -44,7 +54,7 @@ var writePassword = function() {
 // Lower, Upper, Number, Special
 
 // Create an array with the conditions
-// Randomly select the position in the array 
+
 // Execute the logic based on the selection from the array
 // Select random letter - upper
 function selectUpper() {
@@ -86,11 +96,13 @@ console.log("Special First: " + special[0]);
 console.log("Special Last: " + special[29]);
 console.log("Special Length: " + special.length);
 
-// Create an array for the different options 
+// Create an array for the different character types
 var passwordCharacter = function() {
   var passwordArray = ["Upper", "Lower", "Number", "Special"];
   console.log(passwordArray);
   console.log("PasswordArray Length: " + passwordArray.length); 
+
+  // Randomly select the position in the array 
   var passwordXXXX = Math.floor(Math.random() * passwordArray.length)
   return passwordCharacter = passwordArray[passwordXXXX]; 
 }
@@ -99,7 +111,7 @@ console.log("Character Type: " + passwordCharacter)
 
   
 
-
+// ACTION: Add conditional statement. If Upper == True && 
 if (passwordCharacter == "Upper") {
   console.log(selectUpper());
 } else if (passwordCharacter == "Lower") {
@@ -108,7 +120,10 @@ if (passwordCharacter == "Upper") {
   console.log(selectNumber);
 } else if (passwordCharacter == "Special") {
   console.log(selectSpecial());
-}
+} // Reselect a random position in the array until one of the conditions above is true
+  else {
+  passwordCharacter(); 
+  }
 
 
 // Repeat for the length of the number chosen
