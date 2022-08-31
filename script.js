@@ -1,5 +1,3 @@
-// Assignment Code
-
 // STEP 1: 
 // document.querySelector returns the first element that matches the specified selector
 // Triggers the button 
@@ -96,42 +94,38 @@ var writePassword = function() {
   // console.log("Special Last: " + special[29]);
   // console.log("Special Length: " + special.length);
 
-  //Define password as a string
+  //Define password as an empty string
   var password = "";
 
   var passwordCharacter = function() {
     // Create an array for the different character types
     var passwordArray = ["Upper", "Lower", "Number", "Special"];
     // Randomly select the position in the array 
-    passwordPosition = Math.floor(Math.random() * passwordArray.length)
-    passwordCharacterx = passwordArray[passwordPosition]; 
-    console.log("Character Type: " + passwordCharacterx);
+    passwordArrayPosition = Math.floor(Math.random() * passwordArray.length)
+    passwordCharacterType = passwordArray[passwordArrayPosition]; 
+    console.log("Character Type: " + passwordCharacterType);
   
     //  ACTION: Add conditional statement. If Upper == True && 
-    if (passwordLower == "yes" && passwordCharacterx == "Lower") {
-      // console.log("Random Character: " + randomLower()); 
+    if (passwordLower == "yes" && passwordCharacterType == "Lower") {
       characterNext = randomLower();
       password = password.concat(characterNext);
       console.log("Next Character: " + characterNext);
-      console.log("Password: " + characterNext);
-    } else if (passwordUpper == "yes" && passwordCharacterx == "Upper") {
-      // console.log("Random Character: " + randomUpper());
+      //console.log("Password: " + characterNext);
+    } else if (passwordUpper == "yes" && passwordCharacterType == "Upper") {
       characterNext = randomUpper();
       password = password.concat(characterNext);
       console.log("Next Character: " + characterNext);
-      console.log("Password: " + characterNext);
-    } else if (passwordNumber == "yes" && passwordCharacterx == "Number") {
-      // console.log("Random Character: " + randomNumber);
+      //console.log("Password: " + characterNext);
+    } else if (passwordNumber == "yes" && passwordCharacterType == "Number") {
       characterNext = randomNumber;
       password = password.concat(characterNext);
       console.log("Next Character: " + characterNext);
-      console.log("Password: " + characterNext);
-    } else if (passwordSpecial == "yes" && passwordCharacterx == "Special") {
-      // console.log("Random Character: " + randomSpecial());
+      //console.log("Password: " + characterNext);
+    } else if (passwordSpecial == "yes" && passwordCharacterType == "Special") {
       characterNext = randomSpecial();
       password = password.concat(characterNext);
       console.log("Next Character: " + characterNext);
-      console.log("Password: " + characterNext);
+      //console.log("Password: " + characterNext);
     } // Reselect a random position in the array until one of the conditions above is true
       else { 
         passwordCharacter(); 
@@ -143,20 +137,11 @@ var writePassword = function() {
     console.log("Password: " + password);
   }
 
-
-  console.log("User Password Length: " + passwordLength); 
+  console.log("User Password Length: " + passwordLength);
+  console.log("Password Length: " + password.length); 
 
 }
 
-// var test = ("a");
-// var next01 = ("b");
-// var next02 = ("c");
-
-// console.log("Test: " + test);  
-// test = test.concat(next01);
-// console.log("Test: " + test);
-// test = test.concat(next02);
-// console.log("Test: " + test);
 
   // console.log("Password Length Check: " + passwordLength); 
   // console.log("Password Lower Check: " + passwordLower); 
