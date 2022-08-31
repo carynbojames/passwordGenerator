@@ -5,39 +5,33 @@
 // Triggers the button 
 var generateBtn = document.querySelector("#generate");
 
-
-
-// STEP 2: User selects password criteria
 var writePassword = function() {
-    
-  //OPTION 1 for the prompt w/ variable and not a function 
-  // var passwordLength = window.prompt("Select password length. Choose a number greater than 7 and less than 128.");
-    // Validates if user entry meets the criteria
-    // if (passwordLength > 7 && passwordLength < 128) {
-      // console.log("Password Length: " + passwordLength)
-    // Restarts the code to select a different value 
-    // } else (passwordLength);
- 
+
+  // User selects password length
   var selectLength = function() {
     passwordLength = window.prompt("Select password length. Choose a number greater than 7 and less than 128.");
-    // Validates if user entry meets the criteria
+    // If the user entry meets the criteria, then the value is logged
     if (passwordLength > 7 && passwordLength < 128) {
       console.log("Password Length: " + passwordLength)
-    // Restarts the code to select a different value 
+    // If the user entry does NOT meet the criteria, then the function is repeated
     } else (selectLength());
     }
+  // Calls the function to execute
   selectLength();
 
-  // var passwordLower; 
+  // User selects if the password will have lower case characters
   var selectLower = function() {
-    // var passwordLower = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
     passwordLower = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.")
     if (passwordLower == "yes" || passwordLower == "no") {
       return console.log("Password Lowercase: " + passwordLower);
     } else (selectLower());
     }
   selectLower();
+  // QUESTION: "return" vs no "return"
+  // selectLower alternative code
+  // var passwordLower = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.");
 
+  // User selects if the password wil have upper case characters
   var selectUpper = function() {
     passwordUpper = window.prompt("Select if the password includes upper letters. Enter 'yes' or 'no'.")
     if (passwordUpper == "yes" || passwordUpper === "no") {
@@ -67,97 +61,109 @@ var writePassword = function() {
     var lowerString = "abcdefghijklmnopqrstuvwxyz"
     return lowerString[Math.floor(Math.random() * lowerString.length)]
   }
-  console.log("Lower String Random: " + randomLower());
+  // console.log("Lower String Random: " + randomLower());
 
-  var lowerString = "abcdefghijklmnopqrstuvwxyz"
-  console.log("Lower String First: " + lowerString[0]);
-  console.log("Lower String Last: " + lowerString[25]);
-  console.log("Lower String Length: " + lowerString.length);
+  // var lowerString = "abcdefghijklmnopqrstuvwxyz"
+  // console.log("Lower String First: " + lowerString[0]);
+  // console.log("Lower String Last: " + lowerString[25]);
+  // console.log("Lower String Length: " + lowerString.length);
 
   // Select random letter - upper
   function randomUpper() {
     var upperString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     return upperString[Math.floor(Math.random() * upperString.length)]
   }
-  console.log("Upper String Random: " + randomUpper());
+  // console.log("Upper String Random: " + randomUpper());
 
-  var upperString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  console.log("Upper String First: " + upperString[0]);
-  console.log("Upper String Last: " + upperString[25]);
-  console.log("Upper String Length: " + upperString.length);
-
+  // var upperString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  // console.log("Upper String First: " + upperString[0]);
+  // console.log("Upper String Last: " + upperString[25]);
+  // console.log("Upper String Length: " + upperString.length);
 
   // Select random number
   var randomNumber = Math.floor(Math.random() * 10);
-  console.log("Random Number: " + randomNumber);
+  // console.log("Random Number: " + randomNumber);
 
   // Select a special character
   function randomSpecial() {
     var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
     return special[Math.floor(Math.random() * special.length)]
   }
-  console.log("Special Random: " + randomSpecial());
+  // console.log("Special Random: " + randomSpecial());
 
-  var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-  console.log("Special First: " + special[0]);
-  console.log("Special Last: " + special[29]);
-  console.log("Special Length: " + special.length);
+  // var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  // console.log("Special First: " + special[0]);
+  // console.log("Special Last: " + special[29]);
+  // console.log("Special Length: " + special.length);
 
-  // Create an array for the different character types
+  //Define password as a string
+  var password = "";
+
   var passwordCharacter = function() {
+    // Create an array for the different character types
     var passwordArray = ["Upper", "Lower", "Number", "Special"];
-    console.log(passwordArray);
-    console.log("Password Array Length: " + passwordArray.length); 
     // Randomly select the position in the array 
-    var passwordPosition = Math.floor(Math.random() * passwordArray.length)
-    return passwordCharacter = passwordArray[passwordPosition]; 
-    }
-    passwordCharacter();
-    console.log("Character Type: " + passwordCharacter)
-
-
-  console.log("Password Length Check: " + passwordLength); 
-  console.log("Password Lower Check: " + passwordLower); 
-  console.log("Password Upper Check: " + passwordUpper); 
-  console.log("Password Number Check: " + passwordNumber); 
-  console.log("Password Special Check: " + passwordSpecial); 
+    passwordPosition = Math.floor(Math.random() * passwordArray.length)
+    passwordCharacterx = passwordArray[passwordPosition]; 
+    console.log("Character Type: " + passwordCharacterx);
   
-  //  ACTION: Add conditional statement. If Upper == True && 
-  if (passwordLower == "yes" && passwordCharacter == "Lower") {
-    console.log("Random Character: " + randomLower()); 
-  } else if (passwordUpper == "yes" && passwordCharacter == "Upper") {
-    console.log("Random Character: " + randomUpper());
-  } else if (passwordNumber == "yes" && passwordCharacter == "Number") {
-    console.log("Random Character: " + randomNumber);
-  } else if (passwordSpecial == "yes" && passwordCharacter == "Special") {
-    console.log("Random Character: " + randomSpecial());
-  } // Reselect a random position in the array until one of the conditions above is true
-    else {
-  passwordCharacter(); 
+    //  ACTION: Add conditional statement. If Upper == True && 
+    if (passwordLower == "yes" && passwordCharacterx == "Lower") {
+      // console.log("Random Character: " + randomLower()); 
+      characterNext = randomLower();
+      password = password.concat(characterNext);
+      console.log("Next Character: " + characterNext);
+      console.log("Password: " + characterNext);
+    } else if (passwordUpper == "yes" && passwordCharacterx == "Upper") {
+      // console.log("Random Character: " + randomUpper());
+      characterNext = randomUpper();
+      password = password.concat(characterNext);
+      console.log("Next Character: " + characterNext);
+      console.log("Password: " + characterNext);
+    } else if (passwordNumber == "yes" && passwordCharacterx == "Number") {
+      // console.log("Random Character: " + randomNumber);
+      characterNext = randomNumber;
+      password = password.concat(characterNext);
+      console.log("Next Character: " + characterNext);
+      console.log("Password: " + characterNext);
+    } else if (passwordSpecial == "yes" && passwordCharacterx == "Special") {
+      // console.log("Random Character: " + randomSpecial());
+      characterNext = randomSpecial();
+      password = password.concat(characterNext);
+      console.log("Next Character: " + characterNext);
+      console.log("Password: " + characterNext);
+    } // Reselect a random position in the array until one of the conditions above is true
+      else { 
+        passwordCharacter(); 
+    }
   }
+
+  for (var i = 0; i < passwordLength; i++) {
+    passwordCharacter()
+    console.log("Password: " + password);
+  }
+
+
+  console.log("User Password Length: " + passwordLength); 
+
 }
 
-  // ACTION: Right now this just passes it forward. It doesn't return it to the main screen. 
-  //if (!passwordLength) {
-  //  return;
+// var test = ("a");
+// var next01 = ("b");
+// var next02 = ("c");
 
-generateBtn.addEventListener("click", writePassword);
+// console.log("Test: " + test);  
+// test = test.concat(next01);
+// console.log("Test: " + test);
+// test = test.concat(next02);
+// console.log("Test: " + test);
 
+  // console.log("Password Length Check: " + passwordLength); 
+  // console.log("Password Lower Check: " + passwordLower); 
+  // console.log("Password Upper Check: " + passwordUpper); 
+  // console.log("Password Number Check: " + passwordNumber); 
+  // console.log("Password Special Check: " + passwordSpecial); 
   
-
-
-
- 
-
-
-
-// for (var i = 0; i < passwordLength.length; i++) {
-//   password = password.push(password.length[i])
-//   console.log(password);
-// }
-
-
-
 
 // Write password to the #password input
 // function writePassword() {
@@ -166,8 +172,6 @@ generateBtn.addEventListener("click", writePassword);
 
 //  passwordText.value = password;
 
-//}
-
 // Add event listener to generate button
-// The click activates the variable and/or function
-// OBSERVATION: When placed at the beginning, the button doesn't work
+// The click activates the variable and/or function; 
+generateBtn.addEventListener("click", writePassword);
