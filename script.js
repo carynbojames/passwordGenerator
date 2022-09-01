@@ -8,7 +8,7 @@ var generateBtn = document.querySelector("#generate");
 
 // STEP 3: writePassword function
 var writePassword = function() {
-
+  
   // STEP 3A: User selected criteria. User selects and the answers are stored as variables
   // User selects password length
   var selectLength = function() {
@@ -18,47 +18,61 @@ var writePassword = function() {
       console.log("User Select Length: " + passwordLength)
     // If the user entry does NOT meet the criteria, then the function is repeated
     } else (selectLength());
-   }
+  }
   // Calls the function to execute
   selectLength();
 
-  // User selects if the password will have lower case characters
-  var selectLower = function() {
-    passwordLower = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.")
-    if (passwordLower == "yes" || passwordLower == "no") {
-      return console.log("User Select Lowercase: " + passwordLower);
-    } else (selectLower());
-  }
-  selectLower();
-  // QUESTION: "return" vs no "return"
-  // OBS: If I had var in front of passwordLength prmpt, message that passwordLower not defined
+ 
+  var UserSelect = function () { 
 
-  // User selects if the password will have upper case characters
-  var selectUpper = function() {
-    passwordUpper = window.prompt("Select if the password includes upper letters. Enter 'yes' or 'no'.")
-    if (passwordUpper == "yes" || passwordUpper === "no") {
-      console.log("User Select Uppercase: " + passwordUpper);
-    } else (selectUpper());
-  }
-  selectUpper();
+    // User selects if the password will have lower case characters
+    var selectLower = function() {
+      passwordLower = window.prompt("Select if the password includes lowercase letters. Enter 'yes' or 'no'.")
+      if (passwordLower == "yes" || passwordLower == "no") {
+        return console.log("User Select Lowercase: " + passwordLower);
+      } else (selectLower());
+    }
+    selectLower();
+    // QUESTION: "return" vs no "return"
+    // OBS: If I had var in front of passwordLength prmpt, message that passwordLower not defined
 
-  // User selects if the password will have numbers
-  var selectNumber = function() {
-    passwordNumber = window.prompt("Select if the password includes numbers. Enter 'yes' or 'no'.")
-    if (passwordNumber == "yes" || passwordNumber == "no") {
-      console.log("User Select Number: " + passwordNumber);
-  } else (selectNumber()); 
-  }
-  selectNumber();
+    // User selects if the password will have upper case characters
+    var selectUpper = function() {
+      passwordUpper = window.prompt("Select if the password includes upper letters. Enter 'yes' or 'no'.")
+      if (passwordUpper == "yes" || passwordUpper === "no") {
+        console.log("User Select Uppercase: " + passwordUpper);
+      } else (selectUpper());
+    }
+    selectUpper();
 
-  // User selects if the password will have special characters
-  var selectSpecial = function() {
-    passwordSpecial = window.prompt("Select if the password includes special characters. Enter 'yes' or 'no'.")
-    if (passwordSpecial == "yes" || passwordSpecial == "no") {
-      console.log("User Select Special: " + passwordSpecial);
-    } else (selectSpecial());
+    // User selects if the password will have numbers    
+    var selectNumber = function() {
+      passwordNumber = window.prompt("Select if the password includes numbers. Enter 'yes' or 'no'.")
+      if (passwordNumber == "yes" || passwordNumber == "no") {
+        console.log("User Select Number: " + passwordNumber);
+    } else (selectNumber()); 
+    }
+    selectNumber();
+
+    // User selects if the password will have special characters
+    var selectSpecial = function() {
+      passwordSpecial = window.prompt("Select if the password includes special characters. Enter 'yes' or 'no'.")
+      if (passwordSpecial == "yes" || passwordSpecial == "no") {
+        console.log("User Select Special: " + passwordSpecial);
+      } else (selectSpecial());
+    }
+    selectSpecial(); 
+
+    if (passwordLower == "yes" || passwordUpper == "yes" || passwordNumber == "yes" || passwordSpecial == "yes") {
+      console.log("At least one parameter has been selected");
+    } else {
+      UserSelect();
+    } 
   }
-  selectSpecial(); 
+  UserSelect(); 
+
+  // var passwordText = document.querySelector("#password");
+  // passwordText.value = password;
 
   // STEP 3B: Auto-generate the different types of characters in the password
   // Select random letter - lower
@@ -136,8 +150,8 @@ var writePassword = function() {
       password = password.concat(characterNext);
       console.log("Next Character: " + characterNext);
       // console.log("Password: " + characterNext);
-    } // Reselect a random position in the array until one of the conditions above is true
-      else { 
+     // Reselect a random position in the array until one of the conditions above is true
+    } else {
         passwordCharacter(); 
     }
   }
@@ -147,10 +161,10 @@ var writePassword = function() {
     console.log("Password: " + password);
   }
 
-  // Write password to the #password input
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  passwordText.value = password
 
+  // Write password to the #password input
   console.log("User Password Length: " + passwordLength);
   console.log("Password Length: " + password.length); 
 
