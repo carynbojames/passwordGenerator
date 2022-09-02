@@ -71,8 +71,6 @@ var writePassword = function() {
   }
   UserSelect(); 
 
-  // var passwordText = document.querySelector("#password");
-  // passwordText.value = password;
 
   // STEP 3B: Auto-generate the different types of characters in the password
   // Select random letter - lower

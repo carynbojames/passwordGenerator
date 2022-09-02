@@ -5,8 +5,10 @@ Password Generator
 This tool automatically generates a password based on user entered criteria. 
 The user can select the length of the password. She can determine if the password will contain lower case letters, upper case letters, numeric values, or special characters. At least one of these attributes must be selected. 
 
+![screenshot of deployed page](assets/images/password-generator.png)
+
 ## Instructions
-1. Open the link 
+1. Open the link - https://carynbojames.github.io/passwordGenerator/
 2. Select "Generate Password" 
 3. Select the length of the password. The value must be greater than 7 and less than 128. 
 4. Select if the password will have lower case letters, upper case letter, numeric values, or special characters. The password has to have at least one of these elements selected. If none of these elements are chosen, the prompt for these will loop until at least one of the items are selected. 
